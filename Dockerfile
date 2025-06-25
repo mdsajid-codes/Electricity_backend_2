@@ -1,14 +1,12 @@
-# Step 1: Use OpenJDK 17 image as base
-FROM openjdk:17-jdk-slim
-
-# Step 2: Create app directory inside the container
+# Stage 1: Build the JAR
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Step 3: Copy your JAR file into container
-COPY target/backend-0.0.1-SNAPSHOT.jar app.jar
-
-# Step 4: Expose the port your app runs on
+# Stage 2: Run the JAR
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=build /app/target/backend-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-
-# Step 5: Command to run the JAR
 ENTRYPOINT ["java", "-jar", "app.jar"]
