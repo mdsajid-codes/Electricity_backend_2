@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Step 3: Copy your JAR file into container
-COPY target/backend-0.0.1-SNAPSHOT.jar.jar app.jar
+COPY target/backend-0.0.1-SNAPSHOT.jar app.jar
 
 # Step 4: Expose the port your app runs on
 EXPOSE 8080
