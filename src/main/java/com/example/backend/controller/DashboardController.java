@@ -15,7 +15,7 @@ import com.example.backend.service.AuthService;
 
 @RestController
 @RequestMapping("/api/dashboard")
-@CrossOrigin (origins = "http://localhost:5173")
+@CrossOrigin (origins = "*")
 public class DashboardController {
 
     @Autowired

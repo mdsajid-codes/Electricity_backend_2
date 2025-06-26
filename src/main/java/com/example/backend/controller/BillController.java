@@ -28,7 +28,7 @@ import com.example.backend.service.BillService;
 
 @RestController
 @RequestMapping("/api/bills")
-@CrossOrigin (value = "http://localhost:5173")
+@CrossOrigin (value = "*")
 public class BillController {
     @Autowired
     private BillService billService;

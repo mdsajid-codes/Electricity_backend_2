@@ -15,7 +15,7 @@ import com.example.backend.service.AuthService;
 
 @RestController
 @RequestMapping("/api/auth")
-@CrossOrigin (origins = "http://localhost:5173")
+@CrossOrigin (origins = "*")
 public class AuthController {
     @Autowired
     private AuthService authService;
